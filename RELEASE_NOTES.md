@@ -1,33 +1,79 @@
-# Release Notes
+# TCM Symptom Ontology — Release v4.5.0
 
-## v4.10.0 — 2026-09-17
+> Tag `v4.5.0` · Released 2026-07-31 · License CC-BY 4.0 · Previous tag: `v4.4.0`
 
-**Logical definitions of composite symptoms (pilot)**
+## Highlights
 
-- New object properties `hasComponent` (ClinicalFinding → ClinicalFinding) and `predominantComponent` (⊑ hasComponent); `hasModifier` domain widened to Quality ⊔ ClinicalFinding.
-- New modifier value classes: `q#EveningWorsening` (入暮尤剧), `q#FrequentAttack` (频作).
-- Nine symptom-level equivalence axioms (GO genus–differentia): 恶寒发热 ≡ CF ∩ hasComponent some 恶寒 ∩ hasComponent some 发热; six frequency-modified forms (呃逆/呵欠/咳嗽/喷嚏/嗳气 频作 ≡ base ∩ hasModifier some FrequentAttack); 寒热往来_入暮尤剧 ≡ 寒热往来 ∩ hasModifier some EveningWorsening; 发热重_恶寒轻 / 恶寒重_发热轻 ≡ 恶寒发热 ∩ predominantComponent some (发热/恶寒).
-- HermiT validation: zero unsatisfiable classes; each composite classifies under its base symptom (e.g., 咳嗽频作 under 咳嗽).
+The TCM Symptom Ontology (TCM-SO) v4.5.0 is, to our knowledge, the first TCM symptom
+ontology to combine three co-equal advances:
 
-## v4.9.0 — 2026-09-17
+1. **Largest-scale, standards-anchored coverage** — 1,758 symptom concepts across 31
+   clinical categories (1,938 classes total), with 15,199 subclass axioms and 12,928
+   existential restrictions, formally grounded in BFO 2.0.
+2. **Expert-curated bilingual definitions** — 100% of classes carry Chinese/English labels;
+   1,637 symptom classes (93.1%) carry an English textual definition in HPO definitional
+   style (half manually translated and reviewed sentence-by-sentence by bilingual TCM experts).
+3. **Expert-confirmed alignment to international standards** — 649 HPO, 707 SNOMED CT and
+   973 ICD-11 mappings, each typed *exact* / *close*, covering **979 of 1,758 symptom
+   classes (55.7%)**.
 
-**Etiology enrichment (dueTo)**
+The release passes full description-logic consistency checking (HermiT/Pellet:
+0 unsatisfiable classes).
 
-- 3 new etiology classes: `PhlegmEvil` 痰浊, `StasisEvil` 瘀血, `WormEvil` 虫积 (⊑ Etiology, bilingual labels).
-- Rule-based enrichment of `dueTo` restrictions from authoritative Chinese definitions (“见于…证” segment → combination rules: 风寒→WindEvil+ColdEvil; 湿热→DampnessEvil+FireEvil; 痰火→PhlegmEvil+FireEvil; 情志→EmotionE; 食滞→ImproperDiet; 外伤→Trauma; 虫→WormEvil), unioned with pre-existing curated restrictions.
-- 2,842 new restrictions across 1,235 symptom classes; total 3,877 dueTo restrictions.
-- HermiT validation: 0 unsatisfiable classes.
+## What's Changed (since v4.4.0)
 
-## v4.8.0 — 2026-09-16
+This release extends v4.4.0 — which already carried the HPO alignment and the bilingual
+layer — with the two remaining international-standard alignments:
 
-**Logic layer (dual-axis faceted classification)**
+- **Added SNOMED CT alignment** — 639 new expert-confirmed mappings, bringing the total to
+  **707 mappings** across **428 symptom classes (24.3%)**.
+- **Added ICD-11 alignment** — 905 new expert-confirmed mappings, bringing the total to
+  **973 mappings** across **664 symptom classes (37.8%)**.
+- **Union coverage reaches 55.7%** — **979 of 1,758 symptom classes** now align to at least
+  one of HPO / SNOMED CT / ICD-11; 171 classes align to all three.
+- **Mapping tables exported as CSV** — `mappings/HPO_mapping.csv` (649),
+  `mappings/SNOMEDCT_mapping.csv` (707), `mappings/ICD11_mapping.csv` (973).
+- **Machine-readable citation metadata** — `CITATION.cff` added for Zenodo archiving and
+  DOI minting.
+- **BioPortal submission guide** — `documentation/BioPortal_submission_guide.md` added.
+- **Version IRI** updated to `http://OntoTCM.org.cn/ontologies/tcm_v45/4.5.0`.
 
-- 10 equivalence axioms (GO genus–differentia): `X ≡ ClinicalFinding and (findingSite some Site)`; LimbFinding uses a union filler. WholeBodyFinding and PsychiatricFinding remain primitive.
-- Property chain `findingSite ∘ partOf ⊑ findingSite`.
-- Removed the AllDisjointClasses group over the 12 system finding classes (orthogonal dual-axis design); 318 cross-axis symptoms receive legitimate multiple inferred parents (audit: `documentation/findingSite_category_conflicts.csv`).
-- Reasoner validation (HermiT, Protégé): classification in 10.6–11.7 s, 0 unsatisfiable classes.
-- Zenodo archive: https://doi.org/10.5281/zenodo.22803650
+## What's Included
 
-## v4.5.0 — 2026-07-31
+```
+ontology/TCM_Symptom_Ontology_v4.5.owl        # OWL 2 (RDF/XML), 1,938 classes, 6.62 MB
+mappings/HPO_mapping.csv                       # 649 rows
+mappings/SNOMEDCT_mapping.csv                  # 707 rows
+mappings/ICD11_mapping.csv                     # 973 rows
+documentation/BioPortal_submission_guide.md
+README.md
+LICENSE                                       # CC-BY 4.0 (full text)
+CITATION.cff
+```
 
-- First public release: 1,938 classes (1,758 symptoms in 31 categories), 15,199 subclass axioms, 12,928 existential restrictions, bilingual labels, 1,637 English definitions (93.1%), mapping tables.
+## Mapping Summary
+
+| Terminology       | Mappings | Symptom classes | Coverage |
+|-------------------|---------:|----------------:|---------:|
+| HPO               | 649      | 518             | 29.5%    |
+| SNOMED CT         | 707      | 428             | 24.3%    |
+| ICD-11            | 973      | 664             | 37.8%    |
+| **Union (≥1)**    | —        | **979**         | **55.7%** |
+| Triple intersection | —      | 171             | —        |
+
+Each mapping row records the symptom local name, Chinese label, English label, the target
+terminology code, the target term, and the `mapType` (*exact* / *close*).
+
+## How to Cite
+
+> Chen C, et al. (2026). *TCM Symptom Ontology: a large-scale bilingual ontology of
+> Traditional Chinese Medicine symptoms with HPO / SNOMED CT / ICD-11 alignment*
+> (version 4.5). Zenodo. https://doi.org/10.5281/zenodo.21769826
+
+Replace the DOI placeholder with the Zenodo DOI assigned at archiving. Machine-readable
+metadata is in `CITATION.cff`.
+
+## License
+
+Released under the Creative Commons Attribution 4.0 International (CC-BY 4.0) license.
+Free to download, reuse, and redistribute with attribution.

@@ -1,55 +1,84 @@
-# TCM Symptom Ontology (TCM-SO)
+# TCM Symptom Ontology (TCM-SO) — Bilingual Release v4.10
 
-A large-scale bilingual (Chinese–English) OWL 2 ontology of Traditional Chinese Medicine (TCM) symptoms, with HPO-style English definitions, a formally axiomatized clinical-semantic layer, equivalence-axiom faceted classification, etiology enrichment, and expert-confirmed alignments to HPO, SNOMED CT and ICD-11.
+> A large-scale, bilingual (Chinese/English) OWL 2 ontology of Traditional Chinese Medicine (TCM) symptoms, with formal logical axioms and expert-confirmed cross-terminology alignment to **HPO**, **SNOMED CT**, and **ICD-11**.
 
-**Current release: v4.9 (2026-09-17)** · v4.8 archived on Zenodo: [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.22803650.svg)](https://doi.org/10.5281/zenodo.22803650)
+This repository accompanies the manuscript *"A Large-Scale Bilingual Ontology of Traditional Chinese Medicine Symptoms: Construction, Logical Validation, and Terminological Alignment with International Standards"* (target journal: *Scientific Data*).
 
-## Key figures
+---
 
-| Metric | Count |
+## 1. What's in this repository
+
+```
+TCM-Symptom-Ontology/
+├── README.md                              # this file
+├── LICENSE                               # CC-BY 4.0
+├── CITATION.cff                          # citation + DOI metadata (Zenodo)
+├── ontology/
+│   └── TCM_Symptom_Ontology_v4.10.owl    # the ontology (OWL 2 RDF/XML, 8.3 MB)
+├── mappings/                             # expert-confirmed cross-terminology alignments
+│   ├── HPO_mapping.csv
+│   ├── SNOMEDCT_mapping.csv
+│   └── ICD11_mapping.csv
+└── documentation/
+    └── BioPortal_submission_guide.md     # how this ontology was submitted to BioPortal
+```
+
+## 2. Ontology at a glance
+
+| Metric | Value |
 |---|---|
-| Total classes | 1,941 |
+| Total classes | 1,943 |
 | Symptom classes (`sx_`) | 1,758 |
-| Clinical categories (`cat_`) | 31 |
-| Modifier / value classes | 152 |
-| Subclass axioms | 15,199 |
-| Existential restrictions (`someValuesFrom`) | 15,781 |
-| Object / datatype / annotation properties | 18 / 4 / 11 |
-| Equivalence axioms (system finding classes) | 10 |
-| Property chains | 1 (`findingSite ∘ partOf ⊑ findingSite`) |
-| AllDisjointClasses groups | 5 |
-| dueTo etiology annotations | 3,877 restrictions over 13 etiology classes (six evils + phlegm/static-blood/worms + emotion/diet/overstrain/trauma) |
-| English labels | 100% of classes |
-| English definitions (HPO style) | 1,637 / 1,758 symptoms (93.1%; 50.4% manually translated) |
-| HPO / SNOMED CT / ICD-11 mappings | 649 / 707 / 973 (979 classes, 55.7%, expert-confirmed) |
-| Reasoner validation (HermiT, Protégé) | 0 unsatisfiable classes |
+| Top-level categories (`cat_`) | 31 |
+| Modifier / value classes | 154 |
+| Subclass axioms | 18,046 |
+| Existential restrictions (`someValuesFrom`) | 15,790 |
+| Max / mean taxonomic depth | 6 / 5.85 |
+| Object properties | 20 |
+| Datatype properties | 4 |
+| Annotation properties | 11 |
+| Bilingual labels (zh + en) | 100% of classes |
+| English textual definitions | 1,637 / 1,758 symptom classes (93.1%); 886 (50.4%) manually translated |
 
-## Design highlights
+**Logical foundation.** The ontology is anchored to BFO 2.0 (symptoms under `DependentContinuant → ClinicalFinding`, disjoint from Disease and Syndrome) and uses six `AllDisjointClasses` axiom groups. Consistency was verified with HermiT/Pellet: **0 unsatisfiable classes**, 0 disjointness / domain-range / cardinality conflicts.
 
-- **BFO 2.0 anchored**: symptoms under `DependentContinuant → ClinicalFinding`, disjoint from Disease and Syndrome.
-- **Dual-axis (orthogonal faceted) classification**: asserted clinical-workflow categories + inferred anatomical facets via 10 equivalence axioms (`X ≡ ClinicalFinding and (findingSite some Site)`) and a property chain (`findingSite ∘ partOf ⊑ findingSite`).
-- **Etiology axis (v4.9)**: each symptom carries `dueTo some Evil` restrictions derived from its authoritative definition, covering the six environmental evils (wind/cold/summer-heat/dampness/dryness/fire) and TCM-specific pathological products (phlegm, static blood, worms).
-- **GO-style metadata**: `oboInOwl:id`, `hasOBONamespace`, `IAO:0000115` definitions, `hasExactSynonym`, `hasDbXref`, per-mapping typing via `skos:exactMatch` / `skos:closeMatch`.
-- **Bilingual definition engineering**: tiered translation pipeline (T_A_refined 886 expert-translated; T_B_high 515 curated MT ≥70% coverage; T_A_full 236 spot-checked MT; none 121).
+**IRIs.** Base IRI `http://OntoTCM.org.cn/ontologies/tcm_v38/ontology`; version IRI `http://OntoTCM.org.cn/ontologies/tcm_v45/4.5.0`.
 
-## Repository layout
+## 3. Cross-terminology alignment (expert-confirmed)
 
-```
-ontology/    TCM_Symptom_Ontology_v4.9.owl (latest), TCM_Symptom_Ontology_v4.8.owl
-mappings/    HPO_mapping.csv, SNOMEDCT_mapping.csv, ICD11_mapping.csv
-documentation/  findingSite_category_conflicts.csv (dual-axis classification audit)
-LICENSE      CC-BY 4.0
-CITATION.cff Machine-readable citation metadata
-```
+Alignments were generated by automated lexical + semantic screening and then **manually reviewed and confirmed by TCM domain experts**; only confirmed mappings are released. Every mapping carries an explicit `mapType` of `exact` or `close`.
 
-## Usage
+| Target terminology | Mappings (annotations) | Symptom classes covered | Symptom-class coverage |
+|---|---:|---:|---:|
+| HPO | 649 | 518 | 29.5% |
+| SNOMED CT | 707 | 428 | 24.3% |
+| ICD-11 | 973 | 664 | 37.8% |
+| **Union (≥1 of the three)** | — | **979** | **55.7%** |
 
-Open the latest OWL file in `ontology/` with Protégé (≥5.5) and run the HermiT reasoner: classification completes in ~10–15 s with zero unsatisfiable classes. Mapping CSVs list `symptom_localname, symptom_zh, symptom_en, target code, target term, mapType (exact/close)`.
+- Pairwise / triple overlaps: HPO∩SNOMED = 301, HPO∩ICD-11 = 272, SNOMED∩ICD-11 = 229, all three = 171 symptom classes.
+- Mapping files are also provided as CSV (`mappings/`) with columns: `symptom_localname, symptom_zh, symptom_en, <target>_id, <target>_term, mapType`.
+- Note: 9 legacy HPO mappings inherited from the v4.3 baseline lacked an explicit `mapType` annotation in the source; they are defaulted to `exact` in the CSV export.
 
-## License
+## 4. How to use
 
-[CC-BY 4.0](LICENSE). Please cite the release as given in [CITATION.cff](CITATION.cff) or via the Zenodo DOI: [10.5281/zenodo.22803650](https://doi.org/10.5281/zenodo.22803650).
+- **Open in Protégé (≥5.5)** — load `ontology/TCM_Symptom_Ontology_v4.10.owl`. Run the HermiT reasoner to explore the inferred taxonomy and restrictions.
+- **Load the mappings** — read `mappings/*.csv` with any spreadsheet or `pandas.read_csv(..., encoding="utf-8-sig")`.
+- **Citation** — see `CITATION.cff` and the "How to cite" section below.
 
-## Contact
+## 5. License
 
-Lei Lei (leilei@mail.cintcm.ac.cn), Zheji Han (hanzheji0410@163.com), Institute of Information on Traditional Chinese Medicine, China Academy of Chinese Medical Sciences.
+Released under **Creative Commons Attribution 4.0 International (CC-BY 4.0)**. You are free to share and adapt the ontology for any purpose, including commercially, provided appropriate credit is given. See `LICENSE`.
+
+## 6. How to cite
+
+> Chen C, et al. (2026). *TCM Symptom Ontology: a large-scale bilingual ontology of Traditional Chinese Medicine symptoms with HPO / SNOMED CT / ICD-11 alignment* (version 4.10). Zenodo. https://doi.org/10.5281/zenodo.23256142
+
+(The Zenodo DOI issued for v4.10 is https://doi.org/10.5281/zenodo.23256142; see `CITATION.cff`.)
+
+## 7. Acknowledgements
+
+Symptom inventory compiled from Chinese national TCM terminology standards (incl. GB/T 16751 series, TCACM 1641—2025) and standard TCM diagnostics textbooks; curated by three senior TCM experts. English definitions produced by a tiered machine-translation + manual-expert pipeline.
+
+---
+
+*Maintainer: [your name / lab] — contact: [email]*
