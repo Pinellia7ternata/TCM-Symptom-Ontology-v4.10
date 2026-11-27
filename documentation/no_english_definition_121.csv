@@ -1,0 +1,122 @@
+local_name,zh_label,en_label,label_source,definition_tier,iri
+sx_头生白痴,头生白痴,white crust on the head,,none,sx_头生白痴
+sx_耳生痈,耳生痈,ear abscess,,none,sx_耳生痈
+sx_舌起芒刺,舌起芒刺,With raised prickles tongue,舌体规则,none,sx_舌起芒刺
+sx_烧伤起泡,烧伤起泡,burn blistering,,none,sx_烧伤起泡
+sx_鼻头枯稿,鼻头枯稿,withered nasal tip,,none,sx_鼻头枯稿
+sx_耳后缝糜烂结痴,耳后缝糜烂结痴,eroded crusted retroauricular fold,,none,sx_耳后缝糜烂结痴
+sx_左侧胸廓塌陷,左侧胸廓塌陷,left-sided thoracic collapse,,none,sx_左侧胸廓塌陷
+sx_痈疡扪之有捻发感,痈疡扪之有捻发感,snowball-crepitus sensation on palpation of abscess,,none,sx_痈疡扪之有捻发感
+sx_烧伤皮肤色赤,烧伤皮肤色赤,red skin of burn,,none,sx_烧伤皮肤色赤
+sx_上腭黏膜白腐,上腭黏膜白腐,white curdled palatal mucosa,,none,sx_上腭黏膜白腐
+sx_眦角部黄斑,眦角部黄斑,Yellow canthus region macule,,none,sx_眦角部黄斑
+sx_指甲色黄,指甲色黄,Yellow nail,,none,sx_指甲色黄
+sx_舌色猪黑,舌色猪黑,pork-liver-dark tongue,,none,sx_舌色猪黑
+sx_指骨节脱落,指骨节脱落,loss of finger joints,,none,sx_指骨节脱落
+sx_风团色如云彩,风团色如云彩,cloud-colored wheals,,none,sx_风团色如云彩
+sx_耳鲤,耳鲤,ear sore (possibly 耳疔),,none,sx_耳鲤
+sx_足躁水肿,足躁水肿,Ankle edema,,none,sx_足躁水肿
+sx_指苍白,指苍白,Pale finger,,none,sx_指苍白
+sx_耳廓枯槁,耳廓枯槁,withered auricle,,none,sx_耳廓枯槁
+sx_牙龈紫暗,牙龈紫暗,dark-purple gums,,none,sx_牙龈紫暗
+sx_得气行痛减,得气行痛减,pain relieved by qi-moving (massage/exercise),,none,sx_得气行痛减
+sx_上腭腐溃,上腭腐溃,festering palate,,none,sx_上腭腐溃
+sx_太溪脉减弱,太溪脉减弱,weakened Taixi (KI3) pulse,,none,sx_太溪脉减弱
+sx_耳脓色白,耳脓色白,White ear pus,,none,sx_耳脓色白
+sx_言语无休,言语无休,incessant talking,,none,sx_言语无休
+sx_痈疡拍之不应指,痈疡拍之不应指,abscess not yielding to finger pressure,,none,sx_痈疡拍之不应指
+sx_皮疹结血痴,皮疹结血痴,blood-crusted rash,,none,sx_皮疹结血痴
+sx_脉乳,脉乳,soft (soggy) pulse,,none,sx_脉乳
+sx_结喉一侧漫肿,结喉一侧漫肿,diffuse swelling on one side of laryngeal prominence,,none,sx_结喉一侧漫肿
+sx_齿眼肿,齿眼肿,swollen gum margin,,none,sx_齿眼肿
+sx_皮疹结脓痴,皮疹结脓痴,pus-crusted rash,,none,sx_皮疹结脓痴
+sx_熟声如雷,熟声如雷,snoring like thunder,,none,sx_熟声如雷
+sx_牙龈晦暗,牙龈晦暗,dull dark gums,,none,sx_牙龈晦暗
+sx_肛周皮下痰道,肛周皮下痰道,subcutaneous tract around anus,,none,sx_肛周皮下痰道
+sx_手掌角化,手掌角化,palmar keratinization,,none,sx_手掌角化
+sx_乳蛾脓点,乳蛾脓点,tonsillar pus points,,none,sx_乳蛾脓点
+sx_皮峪隆起,皮峪隆起,Skin-ridges bulging,,none,sx_皮峪隆起
+sx_手背肿如覆碗,手背肿如覆碗,dorsal hand swelling like an upturned bowl,,none,sx_手背肿如覆碗
+sx_烧伤结焦痴,烧伤结焦痴,charred crust of burn,,none,sx_烧伤结焦痴
+sx_臂生痈肿,臂生痈肿,arm abscess swelling,,none,sx_臂生痈肿
+sx_阳疾,阳疾,yang disorder (term requires expert verification),,none,sx_阳疾
+sx_瘤体青筋盘曲如蛆绷,瘤体青筋盘曲如蛆绷,tortuous blue vessels on tumor like wriggling maggots,,none,sx_瘤体青筋盘曲如蛆绷
+sx_上肢萎缩,上肢萎缩,Upper limb amyotrophy,人工校正HPO,none,sx_上肢萎缩
+sx_四肢麻木,四肢麻木,numbness of limbs,,none,sx_四肢麻木
+sx_日唇红肿,日唇红肿,Red lips swelling,,none,sx_日唇红肿
+sx_目眦角疼痛,目眦角疼痛,Canthus pain,,none,sx_目眦角疼痛
+sx_唇焦干,唇焦干,parched lips,,none,sx_唇焦干
+sx_胞睑色红,胞睑色红,red eyelid,,none,sx_胞睑色红
+sx_四肢肌肉酸胀,四肢肌肉酸胀,sour distension of limb muscles,,none,sx_四肢肌肉酸胀
+sx_鼻疮,鼻疮,Nasal sore,,none,sx_鼻疮
+sx_指甲下脓肿,指甲下脓肿,subungual abscess,,none,sx_指甲下脓肿
+sx_大眦角肿核,大眦角肿核,inner canthus swollen nodule,,none,sx_大眦角肿核
+sx_臖结块按之坚实,臖结块按之坚实,Xinghe nodule pressure lumping firmness,,none,sx_臖结块按之坚实
+sx_牙龈硬肿,牙龈硬肿,hard swollen gums,,none,sx_牙龈硬肿
+sx_皮肤掀热,皮肤掀热,burning hot skin,,none,sx_皮肤掀热
+sx_畏寒,畏寒,aversion to cold,,none,sx_畏寒
+sx_皮肤于燥,皮肤于燥,Skin dryness,,none,sx_皮肤于燥
+sx_疮疡周围暗红,疮疡周围暗红,dark red around the sore,,none,sx_疮疡周围暗红
+sx_耳廓糜烂结痴,耳廓糜烂结痴,eroded crusted auricle,,none,sx_耳廓糜烂结痴
+sx_指纹单枝,指纹单枝,single-branched finger venules,,none,sx_指纹单枝
+sx_经行吐衄,经行吐衄,vomiting of blood and nosebleed during menstruation,,none,sx_经行吐衄
+sx_牙龈高肿,牙龈高肿,Gum raised swelling,,none,sx_牙龈高肿
+sx_舌体痿软,舌体痿软,flaccid tongue body,,none,sx_舌体痿软
+sx_目割,目割,scratching sensation in the eye,,none,sx_目割
+sx_指甲无泽,指甲无泽,Lusterless nail,,none,sx_指甲无泽
+sx_肢体赓弱,肢体赓弱,limb weakness,,none,sx_肢体赓弱
+sx_皮疹痴下长颗粒肉芽,皮疹痴下长颗粒肉芽,granular granulation under the rash crust,,none,sx_皮疹痴下长颗粒肉芽
+sx_灼痛,灼痛,Burning pain,,none,sx_灼痛
+sx_眼肉光亮,眼肉光亮,lustrous eye tissue,,none,sx_眼肉光亮
+sx_喉中痰鸣,喉中痰鸣,Stridor,HPO HP:0010307,none,sx_喉中痰鸣
+sx_指甲色灰,指甲色灰,Gray nail,色模式,none,sx_指甲色灰
+sx_阴囊瘙痒,阴囊瘙痒,scrotal itching,,none,sx_阴囊瘙痒
+sx_髋部生痈,髋部生痈,hip abscess,,none,sx_髋部生痈
+sx_指甲色白,指甲色白,White nail,,none,sx_指甲色白
+sx_皮肤麻木,皮肤麻木,Skin numbness,,none,sx_皮肤麻木
+sx_疮疡脓头如粟粒,疮疡脓头如粟粒,millet-like pus heads on the sore,,none,sx_疮疡脓头如粟粒
+sx_皮疹结滋痴,皮疹结滋痴,serum-crusted rash,,none,sx_皮疹结滋痴
+sx_睡中流涎,睡中流涎,drooling during sleep,,none,sx_睡中流涎
+sx_指干枯,指干枯,Finger dry and withered,,none,sx_指干枯
+sx_脓夹血块,脓夹血块,pus with blood clots,,none,sx_脓夹血块
+sx_皮疹结黄痴,皮疹结黄痴,yellow-crusted rash,,none,sx_皮疹结黄痴
+sx_皮疹不红,皮疹不红,Red rash,,none,sx_皮疹不红
+sx_皮疹紫红,皮疹紫红,Purplish-red rash,,none,sx_皮疹紫红
+sx_上腭痈肿,上腭痈肿,palatal abscess swelling,,none,sx_上腭痈肿
+sx_牙眼痛,牙眼痛,pain at gum margin,,none,sx_牙眼痛
+sx_皮肤血瘀,皮肤血瘀,Skin blood stasis,,none,sx_皮肤血瘀
+sx_二手掌脱屑,二手掌脱屑,scaling of both palms,,none,sx_二手掌脱屑
+sx_皮疹搔破出血,皮疹搔破出血,rash bleeding after scratching,,none,sx_皮疹搔破出血
+sx_黑睛星鬓,黑睛星鬓,star-like corneal opacities,,none,sx_黑睛星鬓
+sx_指变黑坏死,指变黑坏死,black necrotic finger,,none,sx_指变黑坏死
+sx_胁下瘤块,胁下瘤块,subhypochondriac tumor mass,,none,sx_胁下瘤块
+sx_左侧胸廓隆起,左侧胸廓隆起,left-sided thoracic bulging,,none,sx_左侧胸廓隆起
+sx_趺阳脉搏动减弱,趺阳脉搏动减弱,weakened pulsation of Fuyang (dorsalis pedis) pulse,,none,sx_趺阳脉搏动减弱
+sx_皮肤㿠白,皮肤㿠白,bright pale-white skin,,none,sx_皮肤㿠白
+sx_指暗红,指暗红,Dark red finger,,none,sx_指暗红
+sx_指湿烂,指湿烂,Finger wet erosion,,none,sx_指湿烂
+sx_指甲脱落,指甲脱落,Onycholysis of fingernails,HPO HP:0040039,none,sx_指甲脱落
+sx_唇部疤疹,唇部疤疹,lip herpes,,none,sx_唇部疤疹
+sx_下肢青脉硬结,下肢青脉硬结,indurated blue vessels of lower limb,,none,sx_下肢青脉硬结
+sx_呃声低沉,呃声低沉,low deep hiccup,,none,sx_呃声低沉
+sx_黑睛花赘,黑睛花赘,floral corneal growth,,none,sx_黑睛花赘
+sx_大眦角赤脉传睛,大眦角赤脉传睛,red vessels spreading from inner canthus to the eye,,none,sx_大眦角赤脉传睛
+sx_臖结核成块,臖结核成块,xinghe nodules forming a mass,,none,sx_臖结核成块
+sx_盯耳,盯耳,cerumen impaction,,none,sx_盯耳
+sx_小眦角赤脉传睛,小眦角赤脉传睛,red vessels spreading from outer canthus to the eye,,none,sx_小眦角赤脉传睛
+sx_指甲溃空,指甲溃空,eroded hollow nail,,none,sx_指甲溃空
+sx_指纹分枝,指纹分枝,branched finger venules,,none,sx_指纹分枝
+sx_骨擦音,骨擦音,bone crepitus,,none,sx_骨擦音
+sx_指关节增粗,指关节增粗,Finger joint thickening,,none,sx_指关节增粗
+sx_鸡冠观肉,鸡冠观肉,cockscomb-like growth (hemorrhoid),,none,sx_鸡冠观肉
+sx_上腭血疱,上腭血疱,Palate blood blister,,none,sx_上腭血疱
+sx_指甲色黑,指甲色黑,Black nail,,none,sx_指甲色黑
+sx_言语赛涩,言语赛涩,stuttering sluggish speech,,none,sx_言语赛涩
+sx_耳轮肿起,耳轮肿起,swollen helix,,none,sx_耳轮肿起
+sx_烧伤脱皮,烧伤脱皮,burn skin peeling,,none,sx_烧伤脱皮
+sx_皮疹结干痴,皮疹结干痴,dry-crusted rash,,none,sx_皮疹结干痴
+sx_指甲菲薄腐烂,指甲菲薄腐烂,thin fragile eroded nail,,none,sx_指甲菲薄腐烂
+sx_眦角生胬肉,眦角生胬肉,pterygium growing at the canthus,,none,sx_眦角生胬肉
+sx_噎隔,噎隔,yege (dysphagia),,none,sx_噎隔
+sx_皮疹结厚痴,皮疹结厚痴,thick-crusted rash,,none,sx_皮疹结厚痴
+sx_指甲色斑,指甲色斑,Macule nail,色模式,none,sx_指甲色斑
