@@ -25,7 +25,7 @@ v4.14 is a **quality-repair release** built on v4.10 in three reviewed iteration
    frequency-pattern logical definition (20 equivalence axioms in total).
 3. **Repository housekeeping (round-2 review R2-1/R2-2).**
    - Added `scripts/` (10 analysis scripts + README) and
-     `documentation/normalization_lexicon.csv`, `documentation/no_english_definition_121.csv`,
+     `documentation/normalization_lexicon.csv`, `documentation/no_english_definition_122.csv`,
      completing every path named in the manuscript's Data availability statement;
    - Removed `.bak_20260917` mapping backups, `push_*.bat` helpers, `PUSH_README.md`,
      and the duplicate OWL at repository root (the canonical copy lives in `ontology/`);
@@ -40,7 +40,7 @@ v4.14 is a **quality-repair release** built on v4.10 in three reviewed iteration
 | Symptom classes | 1,758 | 1,759 |
 | Top-level categories | 31 | **34** |
 | Equivalence axioms | 19 | **20** |
-| Existential restrictions | 15,790 | 15,796 |
+| Existential restrictions | 15,790 | 15,795 |
 | Unsatisfiable classes (HermiT) | 0 | 0 |
 
 ## Files
@@ -51,10 +51,14 @@ v4.14 is a **quality-repair release** built on v4.10 in three reviewed iteration
 
 ## Notes
 
+- Version DOI for this release: https://doi.org/10.5281/zenodo.24580325 (concept DOI 10.5281/zenodo.22803649).
 - Base IRI unchanged (`http://OntoTCM.org.cn/ontologies/tcm_v38/`); version IRI `…/tcm_v414/4.14.0`.
 - The 92 unresolved classes remain under `cat_睡眠类` pending expert arbitration in a future release.
-- Manuscript alignment: the Database (Oxford) submission describes v4.10; a statistics
-  refresh (31→34 categories, 1,943→1,947 classes) is queued for the next manuscript version.
+- `documentation/no_english_definition_121.csv` (v4.10 snapshot) is retained for citation
+  stability of the submitted manuscript; the v4.14 list is `no_english_definition_122.csv`
+  (adds `sx_矢气`, which carries no English definition yet).
+- Manuscript alignment: the Database (Oxford) submission describes v4.10; the statistics
+  refresh (31→34 categories, 1,943→1,947 classes, v4.14 DOI) is included in manuscript v1.1.
 
 ---
 

@@ -32,7 +32,7 @@ TCM-Symptom-Ontology/
 │   ├── kappa_reannotation_sheet_rated.csv
 │   ├── findingSite_category_conflicts.csv
 │   ├── normalization_lexicon.csv              # 2,043 lexicon terms
-│   ├── no_english_definition_121.csv
+│   ├── no_english_definition_122.csv
 │   └── BioPortal_submission_guide.md
 └── scripts/                                   # analysis & reproducibility scripts
     ├── m1_normalization.py                    # TCM-SD corpus normalization
@@ -53,12 +53,12 @@ TCM-Symptom-Ontology/
 | Symptom classes (`sx_`) | 1,759 |
 | Top-level categories (`cat_`) | 34 |
 | Modifier / value classes | 154 |
-| Existential restrictions (`someValuesFrom`) | 15,796 |
+| Existential restrictions (`someValuesFrom`) | 15,795 |
 | Equivalence axioms | 20 (10 system-level + 10 symptom-level) |
 | Property chains | 1 |
 | Object / datatype / annotation properties | 20 / 4 / 11 |
 | Bilingual labels (zh + en) | 100% of classes |
-| English textual definitions | 1,637 / 1,758 symptom classes (93.1%); 886 (50.4%) manually translated |
+| English textual definitions | 1,637 / 1,759 symptom classes (93.1%); 886 (50.4%) manually translated |
 | Cross-standard mappings | 2,329 (HPO 649, SNOMED CT 707, ICD-11 973); 979 classes (55.7%) aligned |
 | Unsatisfiable classes (HermiT) | 0 |
 
