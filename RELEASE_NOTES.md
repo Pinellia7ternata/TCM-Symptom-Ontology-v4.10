@@ -1,3 +1,63 @@
+# TCM Symptom Ontology — Release v4.13.0 (candidate)
+
+> Tag `v4.13.0` · Released 2026-11-27 · License CC-BY 4.0 · Previous archived release: v4.10 (`ontology/TCM_Symptom_Ontology_v4.10.owl`)
+
+## Highlights
+
+v4.13 is a **quality-repair release** built on v4.10 in three reviewed iterations
+(v4.11 → v4.12 → v4.13), each validated with HermiT (0 unsatisfiable classes).
+
+1. **Category repair (main change).** An internal audit found that `cat_睡眠类`
+   (sleep category) had been used as a catch-all bucket for **354 symptom classes
+   (~20% of the inventory)**, of which only ~19 are genuine sleep symptoms, and that
+   all 354 classes additionally carried an erroneous asserted `PsychiatricFinding`
+   parent. v4.12/v4.13 reassign **243 classes** to clinically correct homes and remove
+   all 243 erroneous `PsychiatricFinding` links:
+   - **3 new top-level categories** (mounted on the existing system-class lattice):
+     `cat_舌象类` (tongue signs → TongueFinding, 106 classes),
+     `cat_二便类` (stool & urine signs → ExcretionFinding, 63 classes),
+     `cat_肺系类` (pulmonary symptoms → ThoraxFinding, 13 classes);
+   - 5 flatus-family classes → `cat_肛门体征`; 56 abdominal/GI classes → `cat_脘腹_腰部体征`;
+   - `cat_睡眠类` now holds 111 classes (≈19 genuine sleep symptoms + 92 classes
+     pending expert-panel arbitration, listed in the change log).
+2. **New base class + logical definition.** `sx_矢气` (flatus emission) created;
+   `sx_矢气频作 ≡ sx_矢气 and hasModifier some FrequentAttack` — the 6th
+   frequency-pattern logical definition (20 equivalence axioms in total).
+3. **Repository housekeeping (round-2 review R2-1/R2-2).**
+   - Added `scripts/` (10 analysis scripts + README) and
+     `documentation/normalization_lexicon.csv`, `documentation/no_english_definition_121.csv`,
+     completing every path named in the manuscript's Data availability statement;
+   - Removed `.bak_20260917` mapping backups, `push_*.bat` helpers, `PUSH_README.md`,
+     and the duplicate OWL at repository root (the canonical copy lives in `ontology/`);
+   - Fixed citation metadata: the concept DOI is **10.5281/zenodo.22803649**
+     (previously a superseded version DOI was quoted).
+
+## Key figures (v4.13)
+
+| Metric | v4.10 | v4.13 |
+|---|---:|---:|
+| Total classes | 1,943 | **1,947** |
+| Symptom classes | 1,758 | 1,759 |
+| Top-level categories | 31 | **34** |
+| Equivalence axioms | 19 | **20** |
+| Existential restrictions | 15,790 | 15,796 |
+| Unsatisfiable classes (HermiT) | 0 | 0 |
+
+## Files
+
+- `ontology/TCM_Symptom_Ontology_v4.13.owl` — this release (canonical artifact)
+- `ontology/TCM_Symptom_Ontology_v4.10.owl` / `v4.9` / `v4.8` — previous releases, kept for citation stability
+- Change logs (in the submission workspace): 187-class and 56-class reassignment tables with per-class old/new parents
+
+## Notes
+
+- Base IRI unchanged (`http://OntoTCM.org.cn/ontologies/tcm_v38/`); version IRI `…/tcm_v413/4.13.0`.
+- The 92 unresolved classes remain under `cat_睡眠类` pending expert arbitration in a future release.
+- Manuscript alignment: the Database (Oxford) submission describes v4.10; a statistics
+  refresh (31→34 categories, 1,943→1,947 classes) is queued for the next manuscript version.
+
+---
+
 # TCM Symptom Ontology — Release v4.5.0
 
 > Tag `v4.5.0` · Released 2026-07-31 · License CC-BY 4.0 · Previous tag: `v4.4.0`

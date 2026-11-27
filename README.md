@@ -1,8 +1,8 @@
-# TCM Symptom Ontology (TCM-SO) — Bilingual Release v4.10
+# TCM Symptom Ontology (TCM-SO) — Bilingual Release v4.13
 
-> A large-scale, bilingual (Chinese/English) OWL 2 ontology of Traditional Chinese Medicine (TCM) symptoms, with formal logical axioms and expert-confirmed cross-terminology alignment to **HPO**, **SNOMED CT**, and **ICD-11**.
+> A comprehensive, bilingual (Chinese/English) OWL 2 ontology of Traditional Chinese Medicine (TCM) symptoms, with formal logical axioms and expert-confirmed cross-terminology alignment to **HPO**, **SNOMED CT**, and **ICD-11**.
 
-This repository accompanies the manuscript *"A Large-Scale Bilingual Ontology of Traditional Chinese Medicine Symptoms: Construction, Logical Validation, and Terminological Alignment with International Standards"* (target journal: *Scientific Data*).
+This repository accompanies the manuscript *"TCM-SO: A Comprehensive, Bilingual, Logically Axiomatized Ontology of Traditional Chinese Medicine Symptoms with HPO, SNOMED CT and ICD-11 Alignment"* (submitted to *Database: The Journal of Biological Databases and Curation*, Oxford). The manuscript describes release v4.10; v4.13 is a quality-repair release (see `RELEASE_NOTES.md`).
 
 ---
 
@@ -10,75 +10,95 @@ This repository accompanies the manuscript *"A Large-Scale Bilingual Ontology of
 
 ```
 TCM-Symptom-Ontology/
-├── README.md                              # this file
-├── LICENSE                               # CC-BY 4.0
-├── CITATION.cff                          # citation + DOI metadata (Zenodo)
+├── README.md                                  # this file
+├── LICENSE                                    # CC-BY 4.0
+├── CITATION.cff                               # citation + DOI metadata (Zenodo)
+├── RELEASE_NOTES.md                           # per-release notes
 ├── ontology/
-│   └── TCM_Symptom_Ontology_v4.10.owl    # the ontology (OWL 2 RDF/XML, 8.3 MB)
-├── mappings/                             # expert-confirmed cross-terminology alignments
-│   ├── HPO_mapping.csv
-│   ├── SNOMEDCT_mapping.csv
-│   └── ICD11_mapping.csv
-└── documentation/
-    └── BioPortal_submission_guide.md     # how this ontology was submitted to BioPortal
+│   ├── TCM_Symptom_Ontology_v4.13.owl         # current release (OWL 2 RDF/XML)
+│   └── TCM_Symptom_Ontology_v4.8/4.9/4.10.owl # previous releases (citation stability)
+├── mappings/                                  # expert-confirmed cross-terminology alignments
+│   ├── HPO_mapping.csv                        # 649 rows, with mapType
+│   ├── SNOMEDCT_mapping.csv                   # 707 rows
+│   ├── ICD11_mapping.csv                      # 973 rows
+│   ├── TCM-SO-HPO.sssom.tsv                   # SSSOM sets, skos predicates +
+│   ├── TCM-SO-SNOMEDCT.sssom.tsv              #   curation_status=under_review flags
+│   └── TCM-SO-ICD11.sssom.tsv                 #   (78 rows flagged)
+├── documentation/                             # machine-readable supplementary tables
+│   ├── mapping_provenance.csv
+│   ├── translation_tier_audit.csv
+│   ├── clinical_normalization_results.csv
+│   ├── clinical_normalization_spotcheck_200.csv / _scored.csv
+│   ├── kappa_reannotation_sheet_rated.csv
+│   ├── findingSite_category_conflicts.csv
+│   ├── normalization_lexicon.csv              # 2,043 lexicon terms
+│   ├── no_english_definition_121.csv
+│   └── BioPortal_submission_guide.md
+└── scripts/                                   # analysis & reproducibility scripts
+    ├── m1_normalization.py                    # TCM-SD corpus normalization
+    ├── m3_translation_tier_audit.py           # definition-tier audit
+    ├── m4_spotcheck.py / m4_spotcheck_compute.py
+    ├── m5_provenance.py                       # mapping provenance decomposition
+    ├── kappa_sample_and_compute.py / kappa_report.py
+    ├── make_sssom.py / annotate_sssom_curation_status.py
+    ├── composite_definition_outlook.py
+    └── README.md
 ```
 
-## 2. Ontology at a glance
+## 2. Ontology at a glance (v4.13)
 
 | Metric | Value |
 |---|---|
-| Total classes | 1,943 |
-| Symptom classes (`sx_`) | 1,758 |
-| Top-level categories (`cat_`) | 31 |
+| Total classes | 1,947 |
+| Symptom classes (`sx_`) | 1,759 |
+| Top-level categories (`cat_`) | 34 |
 | Modifier / value classes | 154 |
-| Subclass axioms | 18,046 |
-| Existential restrictions (`someValuesFrom`) | 15,790 |
-| Max / mean taxonomic depth | 6 / 5.85 |
-| Object properties | 20 |
-| Datatype properties | 4 |
-| Annotation properties | 11 |
+| Existential restrictions (`someValuesFrom`) | 15,796 |
+| Equivalence axioms | 20 (10 system-level + 10 symptom-level) |
+| Property chains | 1 |
+| Object / datatype / annotation properties | 20 / 4 / 11 |
 | Bilingual labels (zh + en) | 100% of classes |
 | English textual definitions | 1,637 / 1,758 symptom classes (93.1%); 886 (50.4%) manually translated |
+| Cross-standard mappings | 2,329 (HPO 649, SNOMED CT 707, ICD-11 973); 979 classes (55.7%) aligned |
+| Unsatisfiable classes (HermiT) | 0 |
 
-**Logical foundation.** The ontology is anchored to BFO 2.0 (symptoms under `DependentContinuant → ClinicalFinding`, disjoint from Disease and Syndrome) and uses six `AllDisjointClasses` axiom groups. Consistency was verified with HermiT/Pellet: **0 unsatisfiable classes**, 0 disjointness / domain-range / cardinality conflicts.
+**Logical foundation.** Anchored to BFO 2.0 (symptoms under `DependentContinuant → ClinicalFinding`, disjoint from Disease and Syndrome), with a dual-axis design: an asserted examination-workflow category axis (`cat_`) orthogonal to an inferred anatomical finding-site axis (system `*Finding` classes with equivalence axioms), plus a `findingSite ∘ partOf ⊑ findingSite` property chain.
 
-**IRIs.** Base IRI `http://OntoTCM.org.cn/ontologies/tcm_v38/ontology`; version IRI `http://OntoTCM.org.cn/ontologies/tcm_v45/4.5.0`.
+**v4.13 category repair.** 243 symptom classes were re-homed from a catch-all bucket (`cat_睡眠类`) to clinically correct categories, including three new top-level categories (`cat_舌象类`, `cat_二便类`, `cat_肺系类`); 92 classes await expert arbitration. Details in `RELEASE_NOTES.md`.
+
+**IRIs.** Base IRI `http://OntoTCM.org.cn/ontologies/tcm_v38/ontology`; version IRI `http://OntoTCM.org.cn/ontologies/tcm_v413/4.13.0`.
 
 ## 3. Cross-terminology alignment (expert-confirmed)
 
-Alignments were generated by automated lexical + semantic screening and then **manually reviewed and confirmed by TCM domain experts**; only confirmed mappings are released. Every mapping carries an explicit `mapType` of `exact` or `close`.
-
-| Target terminology | Mappings (annotations) | Symptom classes covered | Symptom-class coverage |
+| Target terminology | Mappings | Symptom classes covered | Coverage |
 |---|---:|---:|---:|
 | HPO | 649 | 518 | 29.5% |
 | SNOMED CT | 707 | 428 | 24.3% |
 | ICD-11 | 973 | 664 | 37.8% |
 | **Union (≥1 of the three)** | — | **979** | **55.7%** |
 
-- Pairwise / triple overlaps: HPO∩SNOMED = 301, HPO∩ICD-11 = 272, SNOMED∩ICD-11 = 229, all three = 171 symptom classes.
-- Mapping files are also provided as CSV (`mappings/`) with columns: `symptom_localname, symptom_zh, symptom_en, <target>_id, <target>_term, mapType`.
-- Note: 9 legacy HPO mappings inherited from the v4.3 baseline lacked an explicit `mapType` annotation in the source; they are defaulted to `exact` in the CSV export.
+- All 2,329 mappings carry skos predicates in the SSSOM sets (522 `exactMatch`, 1,807 `closeMatch`).
+- A double-blind 3-rater re-annotation of 421 sampled mappings reached 82.2% consensus acceptance; the 75 non-consensus items (78 rows) are flagged `curation_status=under_review` in the SSSOM sets and queued for re-arbitration (full data in `documentation/kappa_reannotation_sheet_rated.csv`).
+- Provenance: 2,080 mappings (89.3%) are new contributions of the 2024–25 workflow; 249 are inherited from the predecessor standard T/CACM 1641—2025.
+- SNOMED CT and ICD-11 content remain subject to their own licences; the mappings are annotations for reference only.
 
 ## 4. How to use
 
-- **Open in Protégé (≥5.5)** — load `ontology/TCM_Symptom_Ontology_v4.10.owl`. Run the HermiT reasoner to explore the inferred taxonomy and restrictions.
-- **Load the mappings** — read `mappings/*.csv` with any spreadsheet or `pandas.read_csv(..., encoding="utf-8-sig")`.
-- **Citation** — see `CITATION.cff` and the "How to cite" section below.
+- **Open in Protégé (≥5.5)** — load `ontology/TCM_Symptom_Ontology_v4.13.owl` and run HermiT (≈10–12 s, 0 unsatisfiable classes).
+- **DL query examples** — `ClinicalFinding and (findingSite some Tongue) and (dueTo some FireEvil)` returns heat-related tongue findings; `hasModifier some FrequentAttack` returns the six frequency-defined symptoms.
+- **Mappings** — `pandas.read_csv(..., encoding="utf-8-sig")`; SSSOM sets follow the SSSOM spec.
+- **Reproduce the evaluations** — see `scripts/README.md`.
 
 ## 5. License
 
-Released under **Creative Commons Attribution 4.0 International (CC-BY 4.0)**. You are free to share and adapt the ontology for any purpose, including commercially, provided appropriate credit is given. See `LICENSE`.
+Released under **Creative Commons Attribution 4.0 International (CC-BY 4.0)**. See `LICENSE`.
 
 ## 6. How to cite
 
-> Chen C, et al. (2026). *TCM Symptom Ontology: a large-scale bilingual ontology of Traditional Chinese Medicine symptoms with HPO / SNOMED CT / ICD-11 alignment* (version 4.10). Zenodo. https://doi.org/10.5281/zenodo.23256142
+> Chen C, Chen Z, Han Z, Lei L. *TCM Symptom Ontology (TCM-SO)* (version 4.13). Zenodo (2026). Concept DOI: https://doi.org/10.5281/zenodo.22803649
 
-(The Zenodo DOI issued for v4.10 is https://doi.org/10.5281/zenodo.23256142; see `CITATION.cff`.)
+The concept DOI always resolves to the latest archived version.
 
 ## 7. Acknowledgements
 
-Symptom inventory compiled from Chinese national TCM terminology standards (incl. GB/T 16751 series, TCACM 1641—2025) and standard TCM diagnostics textbooks; curated by three senior TCM experts. English definitions produced by a tiered machine-translation + manual-expert pipeline.
-
----
-
-*Maintainer: [your name / lab] — contact: [email]*
+Symptom inventory compiled from Chinese national TCM terminology standards (GB/T 16751 series, T/CACM 1641—2025) and standard TCM diagnostics textbooks; curated by three senior TCM experts. English definitions produced by a tiered machine-translation + manual-expert pipeline.
