@@ -1,17 +1,17 @@
-# TCM Symptom Ontology — Release v4.13.0 (candidate)
+# TCM Symptom Ontology — Release v4.14.0
 
-> Tag `v4.13.0` · Released 2026-11-27 · License CC-BY 4.0 · Previous archived release: v4.10 (`ontology/TCM_Symptom_Ontology_v4.10.owl`)
+> Tag `v4.14.0` · Released 2026-11-27 · License CC-BY 4.0 · Previous archived release: v4.10 (`ontology/TCM_Symptom_Ontology_v4.10.owl`)
 
 ## Highlights
 
-v4.13 is a **quality-repair release** built on v4.10 in three reviewed iterations
-(v4.11 → v4.12 → v4.13), each validated with HermiT (0 unsatisfiable classes).
+v4.14 is a **quality-repair release** built on v4.10 in three reviewed iterations
+(v4.11 → v4.12 → v4.13; consolidated and renumbered as v4.14), each validated with HermiT (0 unsatisfiable classes).
 
 1. **Category repair (main change).** An internal audit found that `cat_睡眠类`
    (sleep category) had been used as a catch-all bucket for **354 symptom classes
    (~20% of the inventory)**, of which only ~19 are genuine sleep symptoms, and that
    all 354 classes additionally carried an erroneous asserted `PsychiatricFinding`
-   parent. v4.12/v4.13 reassign **243 classes** to clinically correct homes and remove
+   parent. v4.12–v4.14 reassign **243 classes** to clinically correct homes and remove
    all 243 erroneous `PsychiatricFinding` links:
    - **3 new top-level categories** (mounted on the existing system-class lattice):
      `cat_舌象类` (tongue signs → TongueFinding, 106 classes),
@@ -32,9 +32,9 @@ v4.13 is a **quality-repair release** built on v4.10 in three reviewed iteration
    - Fixed citation metadata: the concept DOI is **10.5281/zenodo.22803649**
      (previously a superseded version DOI was quoted).
 
-## Key figures (v4.13)
+## Key figures (v4.14)
 
-| Metric | v4.10 | v4.13 |
+| Metric | v4.10 | v4.14 |
 |---|---:|---:|
 | Total classes | 1,943 | **1,947** |
 | Symptom classes | 1,758 | 1,759 |
@@ -45,13 +45,13 @@ v4.13 is a **quality-repair release** built on v4.10 in three reviewed iteration
 
 ## Files
 
-- `ontology/TCM_Symptom_Ontology_v4.13.owl` — this release (canonical artifact)
+- `ontology/TCM_Symptom_Ontology_v4.14.owl` — this release (canonical artifact)
 - `ontology/TCM_Symptom_Ontology_v4.10.owl` / `v4.9` / `v4.8` — previous releases, kept for citation stability
 - Change logs (in the submission workspace): 187-class and 56-class reassignment tables with per-class old/new parents
 
 ## Notes
 
-- Base IRI unchanged (`http://OntoTCM.org.cn/ontologies/tcm_v38/`); version IRI `…/tcm_v413/4.13.0`.
+- Base IRI unchanged (`http://OntoTCM.org.cn/ontologies/tcm_v38/`); version IRI `…/tcm_v414/4.14.0`.
 - The 92 unresolved classes remain under `cat_睡眠类` pending expert arbitration in a future release.
 - Manuscript alignment: the Database (Oxford) submission describes v4.10; a statistics
   refresh (31→34 categories, 1,943→1,947 classes) is queued for the next manuscript version.
@@ -107,7 +107,7 @@ mappings/SNOMEDCT_mapping.csv                  # 707 rows
 mappings/ICD11_mapping.csv                     # 973 rows
 documentation/BioPortal_submission_guide.md
 README.md
-LICENSE                                       # CC-BY 4.0 (full text)
+LICENSE                                        # CC-BY 4.0 (full text)
 CITATION.cff
 ```
 
